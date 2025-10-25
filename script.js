@@ -1,32 +1,57 @@
-var timer = 60;
-let makeBubble = () =>{
+var timer = 30;
+var score = 0;
+var hitrn;
+let makeBubble = () => {
     var clutter = ""
-for(var i = 1; i<=102; i++){
-    var rn = Math.floor(Math.random()*10)
-    clutter += `<div class="bubble">${rn}</div>`
+    for (var i = 1; i <= 102; i++) {
+        var rn = Math.floor(Math.random() * 10)
+        clutter += `<div class = bubble> ${rn} </div>`
+    }
+    document.querySelector(".pbtm").innerHTML = clutter
 }
-document.querySelector(".pbtm").innerHTML = clutter
+let getNewHit = () => {
+    hitrn = Math.floor(Math.random() * 10)
+    document.querySelector("#hitVal").innerHTML = hitrn
 }
-let getNewHit = ()=>{
-   var rann = Math.floor(Math.random()*10)
-   document.querySelector("#hitVal").textContent = rann;
-}
-let runTimer = ()=>{
-    var timInt = setInterval(()=>{
-        if(timer>0){
-        timer--;
+let runTimer = () => {
+    let timInt = setInterval(() => {
+        if (timer > 0) {
+            timer--;
+            document.querySelector("#timerVal").textContent = timer;
+        }
+        else {
+            clearInterval(timInt);
+            document.querySelector(".pbtm").innerHTML = `
+        <h1>Game Over</h1> <br>
+        <h2>Your Score = ${score} </h2>
+        <button class="btn">Start Again</button>`
+            document.querySelector(".btn").addEventListener("click", () => {
+                 timer = 6;
+        score = 0;
+        document.querySelector(".scr").textContent = score;
         document.querySelector("#timerVal").textContent = timer;
+                runTimer()
+                makeBubble()
+                getNewHit()
+            })
         }
-        else{
-            clearInterval(timInt)
-        }
-    }, 1000)
+    },
 
+        1000)
 }
-document.querySelector(".pbtm").addEventListener("click", (dets)=>{
-console.log(dets);
-})
-getNewHit();
-runTimer();
+let increaseScore = () => {
+    score += 10;
+    document.querySelector(".scr").textContent = score;
+}
+document.querySelector(".pbtm").addEventListener("click", (dets) => {
 
-makeBubble();
+    var clickedNum = Number(dets.target.textContent)
+    if (clickedNum === hitrn) {
+        increaseScore()
+        makeBubble()
+        getNewHit()
+    }
+})
+runTimer()
+makeBubble()
+getNewHit()
