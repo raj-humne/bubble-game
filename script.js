@@ -24,9 +24,9 @@ let runTimer = ()=>{
 
 }
 document.querySelector(".pbtm").addEventListener("click", (dets)=>{
-alert("Working");
 console.log(dets);
 })
 getNewHit();
 runTimer();
+
 makeBubble();
