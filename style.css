@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(150, 216, 150);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#panel{
+    height: 80%;
+    width: 80%;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+#ptop{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(48, 88, 48);
+    padding: 0px 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.elem{
+/* width: 10%; */
+align-items: center;
+display: flex;
+gap: 20px;
+}
+.elem h2{
+    font-weight: 500;
+    font-size: 22px;
+}
+.box{
+    padding: 10px 20px;
+    color:rgb(48, 88, 48);
+    font-weight: 600;
+    font-size: 22px;
+    background-color: white;
+    border-radius: 5px;
+}
+.pbtm{
+    padding: 20px;
+    width: 100%;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-wrap: wrap;
+    color:  rgba(48, 88, 48, 0.927);
+    justify-content: center;
+    align-items: center;
+}
+.bubble{
+    height: 60px;
+    width: 60px;
+    background-color: rgba(48, 88, 48, 0.927);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+.bubble:hover{
+    background-color: rgb(41, 76, 41);
+    cursor: pointer;
+}
+.btn{
+    padding: 15px 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(48, 88, 48);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 25px;
+}
